@@ -1,3 +1,17 @@
+# 上海水电燃账单 → Home Assistant / pfm
+
+本仓库包含三块，各自独立：
+
+| 目录 | 作用 |
+|---|---|
+| `custom_components/pudong_veolia_water/` | 浦东威立雅**水费** HA 集成（直连接口，8 实体） |
+| `custom_components/shanghai_gas/` | 上海**燃气** HA 集成（读 pfm 的 `gas_v_bills` 视图，8 实体） |
+| `pfm-sync/`、`gas-sync/` | 水费 / 燃气的 pfm PostgreSQL 落库脚本（含每日 cron） |
+
+下面主文档是**水费集成**。燃气部分见 [gas-sync/README.md](gas-sync/README.md)，它依赖 pfm 库中已有 `gas_*` 表。
+
+---
+
 # 浦东威立雅水费 Home Assistant 集成
 
 把上海浦东威立雅（威客服）的水费账单接入 Home Assistant。基于威客服小程序使用的账单接口，无需登录、无需 token、无需浏览器。
