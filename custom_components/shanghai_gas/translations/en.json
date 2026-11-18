@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "上海燃气 (pfm)",
+        "description": "从 pfm 数据库读取上海燃气账单。请先确保 gas-bill-sync 已将账单同步到 pfm 库。",
+        "data": {
+          "customer_id": "客户号",
+          "pg_host": "pfm 数据库地址",
+          "pg_port": "pfm 数据库端口"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接 pfm 数据库或查询失败",
+      "no_bills": "该客户号下没有账单数据",
+      "unknown": "未知错误"
+    },
+    "abort": {
+      "already_configured": "该客户号已配置"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "bill_amount": { "name": "本期金额" },
+      "consumption": { "name": "本期用量" },
+      "year_consumption": { "name": "年度用量" },
+      "meter_reading": { "name": "气表读数" },
+      "account_balance": { "name": "账户结余" },
+      "gas_price": { "name": "气价" },
+      "ladder_total": { "name": "阶梯用量合计" },
+      "payment_status": { "name": "缴费状态" }
+    }
+  }
+}
